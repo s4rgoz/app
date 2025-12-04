@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Watch Series Ultra</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: url('../images/mobil.png') center center no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto -20px auto;
+    }
+
+    .card {
+      width: 88%;
+      margin: 140px auto 40px auto;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      padding: 16px;
+      border-radius: 16px;
+      animation: fadeCard 0.7s ease;
+    }
+
+    @keyframes fadeCard {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .top-row {
+      display: flex;
+      gap: 12px;
+    }
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: none; /* tamamen boş arka plan */
+}
+
+
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .short {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .desc-box {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.4;
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: #1b1b1b;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <img class="logo" src="../images/logo.gif" alt="Logo" />
+
+  <div class="card">
+
+    <div class="top-row">
+      <img src="../images/aws11.png" class="photo" alt="Watch Series Ultra">
+
+      <div class="info">
+        <div class="title">Apple Watch Series Ultra</div>
+        <div class="short">Dayanıklı tasarım – S9 çip – uzun pil</div>
+        <div class="short">Fiyat: <b>18.999₺</b></div>
+      </div>
+    </div>
+
+    <div class="desc-box">
+      • 49mm premium titanyum kasa<br>
+      • 3000 nit süper parlak ekran<br>
+      • S9 işlemci<br>
+      • 36 saate kadar kullanım<br>
+      • Gelişmiş sağlık sensörleri<br>
+      • Spor & outdoor modları<br>
+      • IP68 + 100m su geçirmezlik<br>
+      • USB-C hızlı şarj desteği
+    </div>
+
+    <button class="btn">Ödemeye Geç</button>
+
+  </div>
+
+</body>
+</html>

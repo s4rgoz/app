@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ürün Detayı</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000 !important;
+      background-image: url('../images/mobil.png') !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes refreshAnim {
+      0%   { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto -20px auto;
+    }
+
+    .card {
+      width: 88%;
+      margin: 140px auto 40px auto;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    .top-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: none;
+    }
+
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .short {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .desc-box {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.4;
+    }
+
+    select {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      outline: none;
+      transition: 0.25s;
+    }
+
+    select:focus {
+      background: rgba(0,0,0,0.75);
+      transform: scale(0.99);
+    }
+
+    .btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: #1b1b1b;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img class="logo" src="../images/logo.gif" alt="Logo" />
+
+  <div class="card" id="cardBox">
+
+    <div class="top-row">
+      <img id="productImg" src="../images/i17pm.png" class="photo" alt="Ürün">
+
+      <div class="info">
+        <div id="modelTitle" class="title">iPhone 17 Pro</div>
+        <div id="modelShort" class="short">Model: Pro</div>
+        <div class="short">Fiyat: <b id="modelPrice">64.499₺</b></div>
+      </div>
+    </div>
+
+    <select id="modelSelect">
+      <option value="pro">iPhone 17 Pro</option>
+      <option value="promax">iPhone 17 Pro Max</option>
+    </select>
+
+    <div class="desc-box" id="modelDesc">
+      • 6.3 inç <br>
+      • A19 Pro çip <br>
+      • 34 saat kullanım <br>
+      • Üst seviye performans ve pil.
+    </div>
+
+    <button class="btn">Ödemeye Geç</button>
+  </div>
+
+<script>
+  const modelSelect = document.getElementById("modelSelect");
+  const modelTitle  = document.getElementById("modelTitle");
+  const modelShort  = document.getElementById("modelShort");
+  const modelPrice  = document.getElementById("modelPrice");
+  const modelDesc   = document.getElementById("modelDesc");
+  const productImg  = document.getElementById("productImg");
+  const cardBox     = document.getElementById("cardBox");
+
+  function refreshCard() {
+    cardBox.style.animation = "none";
+    void cardBox.offsetWidth;
+    cardBox.style.animation = "refreshAnim 0.45s ease";
+  }
+
+  modelSelect.addEventListener("change", () => {
+
+    if(modelSelect.value === "pro") {
+      modelTitle.innerText = "iPhone 17 Pro";
+      modelShort.innerText = "Model: Pro";
+      modelPrice.innerText = "64.499₺";
+      productImg.src = "../images/i17pm.png";
+
+      modelDesc.innerHTML = `
+        • 6.3 inç<br>
+        • A19 Pro çip<br>
+        • 34 saat kullanım<br>
+        • Üst seviye performans.
+      `;
+
+    } else {
+      modelTitle.innerText = "iPhone 17 Pro Max";
+      modelShort.innerText = "Model: Pro Max";
+      modelPrice.innerText = "74.999₺";
+      productImg.src = "../images/i17pm.png";
+
+      modelDesc.innerHTML = `
+        • 6.9 inç<br>
+        • A19 Pro çip<br>
+        • 37 saat kullanım<br>
+        • Gelişmiş ekran & pil.
+      `;
+    }
+
+    refreshCard();
+  });
+  // Ödeme sayfasına geçiş animasyonlu
+document.querySelector(".btn").addEventListener("click", () => {
+  // Fade-out animasyonu
+  document.body.style.opacity = "1";
+  document.body.style.transition = "0.45s";
+  document.body.style.opacity = "0";
+
+  setTimeout(() => {
+    window.location.href = "payment.html";
+  }, 450);
+});
+</script>
+
+</body>
+</html>
