@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Basit Koyu Tema Sayfa</title>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  /* TEK ARKAPLAN */
+  background: #000 url('images/mobil.png') center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+.logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto -20px auto;
+}
+
+.categories {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category {
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category:hover { background: rgba(255,255,255,0.1); }
+.category.active {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+/* --- Ürün Grid --- */
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.product {  
+  background: rgba(255,255,255,0.05);  
+  border-radius: 16px;  
+  padding: 12px;  
+  width: 160px;
+  text-align: center;  
+  backdrop-filter: blur(6px);  
+  transition: transform 0.3s ease, background 0.3s ease;  
+  cursor: pointer;
+
+  opacity: 0;  
+  transform: translateY(40px);  
+  animation: slideUp 0.5s forwards;  
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product img {  
+  width: 100%;  
+  border-radius: 10px;
+  margin-bottom: 10px;  
+}
+
+.product h3 { 
+  margin: 6px 0 4px; 
+  font-size: 15px;
+}
+
+.product p { 
+  margin: 0; 
+  font-size: 12px; 
+  color: rgba(255,255,255,0.7); 
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 480px) {  
+  .product { 
+    width: 130px; 
+    padding: 10px; 
+  }  
+  .product h3 { font-size: 13px; }  
+  .product p { font-size: 11px; }  
+}
+
+.product.show { display: block; opacity: 1; }
+.product.hide { display: none; opacity: 0; }
+
+</style>
+</head>
+
+<body>
+
+<img class="logo" src="images/logo.gif" alt="Logo" />
+
+<div class="categories">
+  <div class="category active" data-category="all">Tümü</div>
+  <div class="category" data-category="telefon">Telefon</div>
+  <div class="category" data-category="laptop">Laptop</div>
+  <div class="category" data-category="airpods">Airpods & Watch</div>
+  <div class="category" data-category="yazilim">Yazılım</div>
+</div>
+
+<div class="products-grid">
+
+  <!-- Telefon -->
+  <div class="product show" data-category="telefon" style="animation-delay:0.1s">
+    <img src="images/i17pm.png" />
+    <h3>Iphone 17 Pro</h3>
+    <p>Başlangıç: 64.499₺</p>
+  </div>
+
+  <div class="product show" data-category="telefon" style="animation-delay:0.2s">
+    <img src="images/i16p.png" />
+    <h3>Iphone 16 Plus</h3>
+    <p>Başlangıç: 46.499₺</p>
+  </div>
+
+  <div class="product show" data-category="telefon" style="animation-delay:0.3s">
+    <img src="images/i15pm.png" />
+    <h3>Iphone 15 Pro Max</h3>
+    <p>Fiyat: 36.499₺</p>
+  </div>
+
+  <div class="product show" data-category="telefon" style="animation-delay:0.4s">
+    <img src="images/i13.png" />
+    <h3>Iphone 13</h3>
+    <p>Fiyat: 15.499₺</p>
+  </div>
+
+  <!-- Laptop -->
+  <div class="product show" data-category="laptop" style="animation-delay:0.5s">
+    <img src="images/mpro.png" />
+    <h3>MacBook Pro</h3>
+    <p>Fiyat: 88.999₺</p>
+  </div>
+
+  <div class="product show" data-category="laptop" style="animation-delay:0.6s">
+    <img src="images/mair.png" />
+    <h3>MacBook Air</h3>
+    <p>Fiyat: 52.499₺</p>
+  </div>
+
+  <div class="product show" data-category="laptop" style="animation-delay:0.7s">
+    <img src="images/mmini.png" />
+    <h3>Mac Mini</h3>
+    <p>Fiyat: 17.499₺</p>
+  </div>
+
+  <div class="product show" data-category="laptop" style="animation-delay:0.8s">
+    <img src="images/sdisplay.png" />
+    <h3>Studio Display</h3>
+    <p>Fiyat: 56.499₺</p>
+  </div>
+
+  <!-- Airpods -->
+  <div class="product show" data-category="airpods" style="animation-delay:0.9s">
+    <img src="images/ap4.png" />
+    <h3>AirPods 4</h3>
+    <p>Fiyat: 4.899₺</p>
+  </div>
+
+  <div class="product show" data-category="airpods" style="animation-delay:1.0s">
+    <img src="images/apmax.png" />
+    <h3>AirPods Max</h3>
+    <p>Fiyat: 12.499₺</p>
+  </div>
+
+  <!-- Watch -->
+  <div class="product show" data-category="airpods" style="animation-delay:1.1s">
+    <img src="images/aws11.png" />
+    <h3>Apple Watch Series 11</h3>
+    <p>Fiyat: 8.499₺</p>
+  </div>
+
+  <div class="product show" data-category="airpods" style="animation-delay:1.2s">
+    <img src="images/awu3.png" />
+    <h3>Apple Watch Ultra 3</h3>
+    <p>Fiyat: 18.999₺</p>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const categories = document.querySelectorAll('.category');
+  const products = document.querySelectorAll('.product');
+
+  // KATEGORİ FİLTRELEME
+  categories.forEach(cat => {
+    cat.addEventListener('click', () => {
+
+      categories.forEach(c => c.classList.remove('active'));
+      cat.classList.add('active');
+
+      const selected = cat.getAttribute('data-category');
+
+      products.forEach(p => {
+        const pc = p.getAttribute('data-category');
+
+        if (selected === 'all' || selected === pc) {
+          p.classList.remove('hide');
+          p.classList.add('show');
+          p.style.animation = 'slideUp 0.5s forwards';
+        } else {
+          p.classList.remove('show');
+          p.classList.add('hide');
+        }
+      });
+
+    });
+  });
+
+  // ÜRÜN DOSYA YOLLARI
+  const productPages = [
+    "i17.html",
+    "i16.html",
+    "i15.html",
+    "i13.html",
+
+    "mpro.html",
+    "mair.html",
+    "mmini.html",
+    "sdisplay.html",
+
+    "ap4.html",
+    "apmax.html",
+    "awsu11.html",
+    "awu3.html"
+  ];
+
+  // TIKLAMA YÖNLENDİRME
+  document.querySelectorAll(".product").forEach((p, i) => {
+    p.addEventListener("click", () => {
+      p.style.animation = "slideUp 0.4s ease";
+      setTimeout(() => {
+        window.location.href = `products/${productPages[i]}`;
+      }, 300);
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>
